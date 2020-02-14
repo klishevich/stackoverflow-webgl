@@ -7,14 +7,16 @@ export function GeoMapChart() {
     const [viewState, setViewState] = React.useState(INITIAL_VIEW_STATE);
 
     return (
-        <DeckGL viewState={viewState} controller={true} width={'100%'} height={'100%'} layers={[]}  onViewStateChange={
-            ({viewState, oldViewState, interactionState}) => {
-                const newViewState = {...viewState};
-                setViewState(newViewState);
-            }}>
+        <div style={{display: "none"}}>
+            <DeckGL viewState={viewState} controller={true} width={'100%'} height={'100%'} layers={[]}  onViewStateChange={
+                ({viewState, oldViewState, interactionState}) => {
+                    const newViewState = {...viewState};
+                    setViewState(newViewState);
+                }}>
 
-            <StaticMap width={'100%'} height={'100%'} mapStyle={MAPBOX_BASE_LAYER}/>
-        </DeckGL>
+                <StaticMap width={'100%'} height={'100%'} mapStyle={MAPBOX_BASE_LAYER}/>
+            </DeckGL>
+        </div>
     )
 }
 
